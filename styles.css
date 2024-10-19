@@ -10,8 +10,12 @@ body {
 }
 
 .container {
-    text-align: center;
-    max-width: 90%; /* Ensure the container doesn't exceed the viewport width */
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Center text within items */
 }
 
 button {
@@ -32,7 +36,7 @@ button:hover {
 }
 
 .envelope {
-    width: 90%; /* Responsive width */
+    width: 150%; /* Responsive width */
     max-width: 320px; /* Max width for larger screens */
     height: 220px;
     position: relative;
@@ -113,6 +117,19 @@ button:hover {
     max-height: 100%; /* Ensure images do not exceed scrollable area */
     opacity: 0.9; /* Slight transparency for stacked effect */
 }
+#openEnvelopeBtn, #closeEnvelopeBtn {
+    margin-top: 10px; /* Spacing above the button */
+    background-color: #FF69B4; /* Light pink background for open button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    color: white; /* White text */
+    padding: 8px 15px; /* Increased padding */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    font-size: 14px; /* Font size */
+    text-align: center; /* Center align text */
+    width: 100%; /* Make buttons full width for better appearance */
+}
 
 #closeEnvelopeBtn {
     margin-top: 10px;
@@ -121,10 +138,13 @@ button:hover {
     color: white; /* White text for visibility */
     border: none; /* No border */
     padding: 8px 15px; /* Increased padding */
+    text-align: center;
+    font-size: 14px;
 }
 
 /* Heart Background */
 .heart-background {
+    display: flex;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -166,10 +186,10 @@ button:hover {
 }
 
 .heart:nth-child(1) { top: 30%; left: 30%;transform: rotate(20deg); }
-.heart:nth-child(2) { top: 32%; left: 25%; transform: rotate(30deg);}
-.heart:nth-child(3) { top: 30%; left: 35%; transform: rotate(45deg);}
+.heart:nth-child(2) { top: 50%; left: 25%; transform: rotate(30deg);}
+.heart:nth-child(3) { top: 30%; left: 45%; transform: rotate(45deg);}
 .heart:nth-child(4) { top: 20%; left: 55%; transform: rotate(-10deg);}
-.heart:nth-child(5) { top: -20%; left: 70%; transform: rotate(-35deg); }
+.heart:nth-child(5) { top: -40%; left: 70%; transform: rotate(-35deg); }
 .heart:nth-child(6) { top: -30%; left: 60%; transform: rotate(-35deg);}
 
 /* Envelope Decorations */
