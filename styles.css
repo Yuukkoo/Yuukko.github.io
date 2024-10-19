@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e0e0e0; /* Light background for better contrast */
+    overflow: hidden; /* Prevent overflow for better aesthetics */
+}
+
+.container {
+    text-align: center;
+    max-width: 90%; /* Ensure the container doesn't exceed the viewport width */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #FF69B4; /* Light pink background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 20px; /* Added margin for spacing */
+    width: 80%; /* Button width for better mobile appearance */
+}
+
+button:hover {
+    background-color: #ff1493; /* Darker pink on hover */
+}
+
+.envelope {
+    width: 90%; /* Responsive width */
+    max-width: 320px; /* Max width for larger screens */
+    height: 220px;
+    position: relative;
+    margin: 20px auto;
+    perspective: 1000px;
+    border-radius: 5px; /* Rounded corners for the envelope */
+    background-color: #f5f5f5; /* Light background to remove borders */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.envelope-flap {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, #f5f5f5, #ffffff); /* Light envelope texture */
+    border-bottom: none;
+    top: 0;
+    left: 0;
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    border-radius: 5px 5px 0 0; /* Rounded corners */
+    z-index: 1; /* Ensure it's above the content */
+}
+
+.envelope-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffff; /* White background for content */
+    top: 50%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 0 0 5px 5px; /* Rounded corners */
+    z-index: 0; /* Below the flap */
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(-180deg) translateY(-10px); /* Fold back and slightly shift up */
+    z-index: 0; /* Keep it behind the content */
+}
+
+.envelope.open .envelope-content {
+    transform: rotateX(0);
+    z-index: 1; /* Bring content above the flap */
+}
+
+/* Hide decorations when opened */
+.envelope.open .envelope-decorations {
+    opacity: 0; /* Make decorations invisible */
+    pointer-events: none; /* Prevent interaction */
+}
+
+.photos {
+    position: relative;
+    width: 90%; /* Adjusted to fit inside the envelope */
+    height: auto;
+    overflow: hidden; /* Hide overflow for the stacked images */
+}
+
+.scrollable {
+    width: 100%;
+    height: 150px; /* Increased height for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: flex; /* Use flex to stack images vertically */
+    flex-direction: column; /* Stack images vertically */
+    gap: 10px; /* Space between images */
+}
+
+.photos img {
+    width: 100%; /* Width of images */
+    height: auto;
+    max-height: 100%; /* Ensure images do not exceed scrollable area */
+    opacity: 0.9; /* Slight transparency for stacked effect */
+}
+
+#closeEnvelopeBtn {
+    margin-top: 10px;
+    background-color: red;
+    border-radius: 5px; /* Rounded corners */
+    color: white; /* White text for visibility */
+    border: none; /* No border */
+    padding: 8px 15px; /* Increased padding */
+}
+
+/* Heart Background */
+.heart-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Behind other elements */
+    overflow: hidden; /* Hide overflow for hearts */
+}
+
+/* Heart shapes */
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin-top: 10px;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 52px;
+    height: 80px;
+    border-radius: 50px 50px 0 0;
+    background: #41800d;
+}
+
+.heart::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart:nth-child(1) { top: 30%; left: 30%;transform: rotate(20deg); }
+.heart:nth-child(2) { top: 32%; left: 25%; transform: rotate(30deg);}
+.heart:nth-child(3) { top: 30%; left: 35%; transform: rotate(45deg);}
+.heart:nth-child(4) { top: 20%; left: 55%; transform: rotate(-10deg);}
+.heart:nth-child(5) { top: -20%; left: 70%; transform: rotate(-35deg); }
+.heart:nth-child(6) { top: -30%; left: 60%; transform: rotate(-35deg);}
+
+/* Envelope Decorations */
+.envelope-decorations {
+    position: absolute;
+    top: 10px; /* Adjust position for decorations */
+    left: 10px; /* Adjust position for decorations */
+    display: flex;
+    flex-direction: column;
+    z-index: 2; /* Ensure decorations are above the flap */
+}
+
+.stamp {
+    background-color: #FF69B4; /* Pink stamp */
+    width: 40px;
+    height: 40px;
+    border-radius: 5px; /* Rounded corners */
+    position: relative;
+    margin-bottom: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Ensure the image doesn't overflow */
+}
+
+.stamp:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed white; /* White dashed border for effect */
+    border-radius: 5px; /* Rounded corners */
+    top: -5px; /* Positioning the border */
+    left: -5px; /* Positioning the border */
+}
+
+.stamp-image {
+    width: 100%; /* Fill the stamp area */
+    height: 100%; /* Fill the stamp area */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+    border-radius: 5px; /* Match the rounded corners of the stamp */
+}
+
+.decorative-text {
+    font-size: 14px;
+    text-align: left; /* Align text to the left */
+    color: #FF69B4; /* Pink text color */
+    margin-top: 5px;
+}

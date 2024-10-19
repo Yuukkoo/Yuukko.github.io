@@ -3,13 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funny GIF Popout</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Envelope Animation</title>
 </head>
 <body>
-    <h1>Click the button to see a funny GIF!</h1>
-    <button id="gifButton">Click me!</button>
-    <div id="gifContainer"></div>
+    <div class="heart-background">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <div class="container">
+        <button id="openEnvelopeBtn">Open Envelope</button>
+        <div class="envelope">
+            <div class="envelope-flap">
+                <div class="envelope-decorations">
+                    <div class="stamp"><img src="photos/sirok.jpg" alt="stamp" class="stamp-image"></div>
+                    <div class="heart-icon"></img></div>
+                    <div class="decorative-text">С такой же любовью как к сыркам</div>
+                </div>
+            </div>
+            <div class="envelope-content">
+                <div class="photos">
+                    <div class="scrollable">
+                        <img src="photos/photo1.jpg" alt="Photo 1">
+                        <img src="photos/photo2.jpg" alt="Photo 2">
+                        <img src="photos/photo3.jpg" alt="Photo 3">
+                        <img src="photos/photo4.jpg" alt="Photo 1">
+                        <img src="photos/photo5.jpg" alt="Photo 2">
+                        <img src="photos/photo6.jpg" alt="Photo 3">
+                        <img src="photos/photo7.jpg" alt="Photo 1">
+                        <img src="photos/photo8.jpg" alt="Photo 2">
+                        <img src="photos/photo9.jpg" alt="Photo 3">
+                        <img src="photos/photo10.jpg" alt="Photo 1">
+                        <img src="photos/photo11.jpg" alt="Photo 2">
+                    </div>
+                </div>
+                <button id="closeEnvelopeBtn">Close Envelope</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
